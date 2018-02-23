@@ -65,7 +65,7 @@ public class ProTa01 {
 	
 //Corps du test de création de projet
 	@Test
-	public void test() throws InterruptedException {
+	public void testProTa01() throws InterruptedException {
 		//1- Création de la page de connexion
 		LogPage log = PageFactory.initElements(driver, LogPage.class);
 		//1- Redirection vers la page d'accueuil grâce à la méthode de connexion issue de la page-objet correspondante avec les identifiants admin.
@@ -89,7 +89,7 @@ public class ProTa01 {
 	}
 	
 	//Corps du test de création de projet
-		//@Test
+		@Test
 		public void testProTa02() throws InterruptedException {
 			
 			//1- Création de la page de connexion
@@ -144,7 +144,7 @@ public class ProTa01 {
 			
 		}
 
-		//@Test
+		@Test
 		public void testProTa03() throws InterruptedException {
 			
 			//1- Création de la page de connexion
@@ -196,7 +196,7 @@ public class ProTa01 {
 			resources.clickSave();
 		}
 		
-		//@Test
+		@Test
 		public void testProTa04() throws InterruptedException {
 			
 			//1- Création de la page de connexion

@@ -16,6 +16,7 @@ import org.dbunit.operation.DatabaseOperation;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
@@ -29,7 +30,7 @@ import org.openqa.selenium.support.PageFactory;
 public class ProTa04 {
 
 	WebDriver driver;
-	String navigateur = "firefox";
+	String navigateur = "chrome";
 	String driverSQL = "org.postgresql.Driver";
 	String jdbcURL = "jdbc:postgresql://localhost/libreplan";
 	String user = "libreplan";
@@ -100,12 +101,14 @@ public class ProTa04 {
 		
 		//2- Redirection vers la liste des planning via un click sur l'onglet correspondant.
 		ProjectsListPage list = plan.clickProjectslist();
+		Thread.sleep(1000);
 		
 		//3- Accès à la page édition du projet
 		ProjectDetailsPage project = list.selectionProject("PROJET_TEST1");
 		
 		//4- Redirection vers la page de visualisation du planning
 		ProjectSchedulingPage schedule = project.clickProjectScheduling();
+		Thread.sleep(1000);
 		
 		//5- Changement de vue vers la vue Année
 		schedule.menuDeroulantVue("Year");
@@ -115,6 +118,18 @@ public class ProTa04 {
 		
 		//7- Changement de vue vers la vue Mois
 		schedule.menuDeroulantVue("Month");
+		Thread.sleep(1000);
+		
+		//suppression du projet
+		schedule.listeProjet();
+		Thread.sleep(1000);
+
+		
+		schedule.supprimerProjet();
+		Thread.sleep(1000);
+		schedule.supprOk();
+		
+		
 	}
 
 	

@@ -17,7 +17,7 @@ protected final WebDriver driver;
 	public void selectAllAllocations() {
 		
 	WebDriverWait wait = new WebDriverWait(driver,10);
-	wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//div[@id='"+prefixe()+"pl-box']/tbody/tr[2]/td[2]"))).click();
+	wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//table[@id='"+prefixe()+"ff-box']/tbody/tr[2]/td[2]"))).click();
 	}
 
 	public void selectAllocations(){
@@ -41,7 +41,7 @@ protected final WebDriver driver;
 		
 		public ProjectSchedulingPage validateAllocation(){
 			WebDriverWait wait = new WebDriverWait(driver, 10);
-			wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//div[5]/div[3]/div/div/div/table[2]/tbody/tr/td/table/tbody/tr/td[1]/span/table/tbody/tr[2]/td[2]"))).click();
+			wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//table[@id='"+prefixe()+"m50-box']/tbody/tr[2]/td[2]"))).click();
 			return PageFactory.initElements(driver, ProjectSchedulingPage.class);
 		}
 }

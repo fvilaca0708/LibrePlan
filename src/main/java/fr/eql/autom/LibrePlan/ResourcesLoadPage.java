@@ -14,7 +14,7 @@ public class ResourcesLoadPage extends ProjectPage {
 	
 	public PopupTaskPage selectResource(){
 		WebDriverWait wait = new WebDriverWait(driver, 10);
-		wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//span[@id='"+prefixe()+"2r-open']"))).click();
+		wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//span[@id='"+prefixe()+"5r-open']"))).click();
 	
 		return PageFactory.initElements(driver, PopupTaskPage.class);
 	

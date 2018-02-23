@@ -28,6 +28,9 @@ public class PlanPage extends PlanProjectCommonPage {
 	@FindBy (how=How.XPATH, using="//td[.='Resources Load']")
 	public WebElement resourcesLoad;
 	
+//	@FindBy (how=How.XPATH, using="//[@id='"+prefixe()+"q7-box']/tbody/tr[2]/td[2]/img")
+//	public WebElement supprimerProjet;
+	
 	public PopupProjectAdd clickProjectAdd(){
 		this.projectAdd.click();
 		return PageFactory.initElements(driver, PopupProjectAdd.class);
@@ -52,5 +55,22 @@ public class PlanPage extends PlanProjectCommonPage {
 			//this.projectsPlanning.click();
 			return PageFactory.initElements(driver, ResourcesLoadPage.class);
 	}
+		public void supprimerProjet() {
+			
+			WebDriverWait wait = new WebDriverWait(driver, 10);
+			wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//table[@id='"+prefixe()+"q7-box']/tbody/tr[2]/td[2]/img"))).click();
+			
+		}
+		public String prefixe(){
+			WebElement bouton = driver.findElement(By.xpath("//body/div"));
+			String idBouton = bouton.getAttribute("id");
+			String prefix = idBouton.substring(0, 4);
+			return prefix;
+		}
+		
+		public void supprOk() {
+			WebDriverWait wait = new WebDriverWait(driver, 10);
+			wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//table[@id='"+prefixe()+"06-box']/tbody/tr[2]/td[2]"))).click();;
+		}
 		
 }
