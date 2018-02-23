@@ -3,6 +3,7 @@ package fr.eql.autom.LibrePlan;
 import static org.junit.Assert.*;
 
 import java.io.File;
+import java.net.URL;
 import java.sql.SQLException;
 import java.util.concurrent.TimeUnit;
 
@@ -23,6 +24,8 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxOptions;
 import org.openqa.selenium.firefox.FirefoxProfile;
 import org.openqa.selenium.ie.InternetExplorerDriver;
+import org.openqa.selenium.remote.DesiredCapabilities;
+import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.support.PageFactory;
 
 
@@ -35,35 +38,30 @@ public class ProTa04Test {
 	String jdbcURL = "jdbc:postgresql://localhost/libreplan";
 	String user = "libreplan";
 	String password = "libreplan";
-
+	DesiredCapabilities dc;
 	
 
 	@Before
 	public void setup() throws SQLException, Exception{
 
-		System.setProperty("navigateur", navigateur);
-		String nav = System.getProperty("navigateur");
-	
-		//cas où les test est fait sur chrome
-	if (nav.equals("chrome")) {
-		System.setProperty("webdriver.chrome.driver", "C:\\Users\\Formation\\Desktop\\PROJET 3\\chromedriver.exe");
-		driver = new ChromeDriver();
-		
-	}
-	//cas où les test est fait sur firefox
-	if (nav.equals("firefox")) {
-		System.setProperty("webdriver.gecko.driver", "C:\\FORMATION\\geckodriver-v0.19.1-win64\\geckodriver.exe");
-		FirefoxOptions options = new FirefoxOptions().setProfile(new FirefoxProfile());
-		options.addPreference("browser.tabs.remote.autostart", false);
-		driver = new FirefoxDriver(options);
-		
-	}
-	//cas où les test est fait sur ie
-	if (nav.equals("ie")) {
-		System.setProperty("webdriver.ie.driver", "C:\\Users\\Formation\\Desktop\\PROJET 3\\IEDriverServer.exe");
-		driver = new InternetExplorerDriver();
-		
-	}
+		String navo = System.getProperty("browser");
+		if(navo==null) {
+			dc = DesiredCapabilities.chrome();
+			//driver = new ChromeDriver();
+			System.out.println("Chrome");
+		}
+		else if (navo.equals("firefox")) {
+			//System.setProperty("webdriver.gecko.driver","C:\\Users\\Formation\\Downloads\\geckodriver-v0.19.1-win64\\geckodriver.exe");
+			//driver = new FirefoxDriver();
+			dc = DesiredCapabilities.firefox();
+			System.out.println("Firefox");
+		} else {
+			//driver = new ChromeDriver();
+			dc = DesiredCapabilities.chrome();
+			System.out.println("Default Chrome");
+		}
+		 
+		driver = new RemoteWebDriver(new URL("http://192.168.2.22:4444/wd/hub"), dc);
 	
 		
 	driver.get("http://192.168.2.41:8080/libreplan/common/layout/login.zul");
