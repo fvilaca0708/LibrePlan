@@ -167,4 +167,8 @@ public class ProTa04Test {
 		Assertion.assertEquals(expectedTable, table);
 	}
 	*/
+	@After 
+	public void teadown() {
+		driver.quit();
+	}
 }

@@ -178,7 +178,7 @@ public class ProTa03Test {
 		Assertion.assertEquals(expectedTable, table);
 	}
 	*/
-	@Ignore 
+	@After 
 	public void teardown() {
 		driver.quit();
 	}
