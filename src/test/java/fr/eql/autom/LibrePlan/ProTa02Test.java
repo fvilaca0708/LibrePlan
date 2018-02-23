@@ -26,7 +26,7 @@ import org.openqa.selenium.support.PageFactory;
 
 
 //Cas de test Pro_TA_02 : Ajouter des tâches à un projet
-public class ProTa02 {
+public class ProTa02Test {
 
 	WebDriver driver;
 	String navigateur = "firefox";

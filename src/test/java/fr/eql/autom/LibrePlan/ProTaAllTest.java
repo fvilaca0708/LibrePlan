@@ -15,7 +15,7 @@ import org.openqa.selenium.support.PageFactory;
 
 
 //Cas de test Créer un projet
-public class ProTaAll {
+public class ProTaAllTest {
 
 	WebDriver driver;
 	String navigateur = "firefox";

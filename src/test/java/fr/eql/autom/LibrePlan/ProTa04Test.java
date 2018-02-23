@@ -27,7 +27,7 @@ import org.openqa.selenium.support.PageFactory;
 
 
 //Cas de test Pro_TA_04 : Affichage planning d'un projet
-public class ProTa04 {
+public class ProTa04Test {
 
 	WebDriver driver;
 	String navigateur = "chrome";

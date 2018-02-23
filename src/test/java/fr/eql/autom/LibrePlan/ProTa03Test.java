@@ -27,7 +27,7 @@ import org.openqa.selenium.support.PageFactory;
 
 
 //Cas de test Pro_TA_03 : Allouer une ressource à un projet
-public class ProTa03 {
+public class ProTa03Test {
 
 	WebDriver driver;
 	String navigateur = "chrome";
